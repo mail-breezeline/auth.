@@ -1,0 +1,748 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+a,
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+body {
+    -webkit-touch-callout: none
+}
+
+#pronto-login {
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    font-family: "Helvetica Neue", Helvetica
+}
+
+#pronto-login .selectable,
+#pronto-login input,
+#pronto-login textarea {
+    -webkit-user-select: auto
+}
+
+#pronto-login.notransform {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    transform: none !important
+}
+
+.pronto-login {
+    overflow: auto !important;
+    position: relative;
+    height: 100%;
+    z-index: 10;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #f7f9fa
+}
+
+#pronto-login__not-supported-browser {
+    display: none;
+    z-index: 150;
+    color: #fff;
+    background-color: #f7f9fa;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.pronto-login__wrapper {
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+    height: 100%;
+    width: 100%
+}
+
+.pronto-login__wrapper-body {
+    height: 100%;
+    display: table-row;
+    vertical-align: middle;
+    text-align: center
+}
+
+.pronto-login__host {
+    margin-left: 5px;
+    color: #000;
+    font-size: 16px
+}
+
+.pronto-login__logo {
+    display: inline-block;
+    overflow: hidden;
+    width: 330px;
+    height: 110px;
+    vertical-align: middle
+}
+
+.pronto-login__logo-img {
+    display: block;
+    margin: 0 auto
+}
+
+.pronto-login__singup {
+    float: left;
+    margin-left: 20px;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+    line-height: 60px;
+    font-size: 15px
+}
+
+.pronto-login__singup a {
+    color: #fff;
+    font-weight: 700
+}
+
+.pronto-login__form-wrapper {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.pronto-login__form {
+    position: relative;
+    margin: 30px 0;
+    display: inline-block;
+    padding: 10px;
+    height: 430px;
+    box-sizing: border-box
+}
+
+.pronto-login-sms__form {
+    height: auto
+}
+
+.pronto-login__forgot {
+    margin: 20px 0;
+    height: 30px;
+    display: inline-block;
+    color: #fff;
+    z-index: 1;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+    font-size: 15px
+}
+
+.pronto-login__wrapper-footer {
+    display: table-row;
+    text-align: center;
+    height: auto
+}
+
+.pronto-login__footer {
+    display: table-cell;
+    height: 60px;
+    overflow: hidden
+}
+
+.pronto-login__pronto-logo {
+    display: block;
+    margin: 17px auto 0;
+    width: 81px;
+    height: 27px;
+    background-image: url(data:image/png;base64,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)
+}
+
+.pronto-login__copyright {
+    margin-right: 20px;
+    color: #7f939c;
+    line-height: 25px;
+    font-size: 13px
+}
+
+.pronto-login__copyright-version {
+    color: #b8c6cc;
+    font-size: 12px
+}
+
+.pronto-login__submit {
+    position: relative;
+    top: 27px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: -moz-available
+}
+
+.pronto-login__recover-password {
+    margin: 25px 0 0;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    width: 100%
+}
+
+.pronto-login__recover-password,
+.pronto-login__recover-password-invite,
+.pronto-login__cancel-recover-password {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.pronto-login__recover-password-invite,
+.pronto-login__cancel-recover-password {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    width: -moz-available
+}
+
+.pronto-login__link-button {
+    cursor: pointer;
+    margin-left: 4px;
+    color: #0086bf;
+    text-decoration: underline;
+    text-shadow: 0 1px rgba(255, 255, 255, .75);
+    font-size: 15px;
+    line-height: 27px
+}
+
+.pronto-login__link-button:hover {
+    color: #427995
+}
+
+.pronto-login__link-button:active {
+    color: #255671
+}
+
+.pronto-login__list {
+    margin: 5px 0 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px
+}
+
+.pronto-login__list-content {
+    display: table
+}
+
+.pronto-login__list-content_full-width {
+    width: 100%
+}
+
+.pronto-login__item {
+    display: table-row;
+    overflow: hidden;
+    padding: 0 6px 0 71px;
+    height: 40px;
+    font-size: 16px
+}
+
+.pronto-login__item,
+.pronto-login__type {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.pronto-login__type {
+    display: table-cell;
+    z-index: 1;
+    padding: 9px 10px 9px 0;
+    color: #7f7f7f;
+    text-align: left;
+    font-weight: 700;
+    vertical-align: middle
+}
+
+.pronto-login__type-center {
+    text-align: center;
+    padding-right: 0
+}
+
+.pronto-login__field-wrapper {
+    vertical-align: middle;
+    display: table-cell
+}
+
+.pronto-login__field {
+    display: block;
+    margin: 5px 0;
+    padding: 4px 5px;
+    width: 100%;
+    height: 43px;
+    color: #525c66;
+    border: 1px solid #bbc6cb;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 22px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.pronto-login__remember {
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+    margin-left: -3px
+}
+
+.pronto-login__remember-label {
+    color: #7f939c;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .99);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    line-height: 19px;
+    padding-left: 27px;
+    height: 19px;
+    display: inline-block;
+    background-repeat: no-repeat
+}
+
+.pronto-login__remember-field+.pronto-login__remember-label {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAmCAYAAABu+H0XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABJJJREFUeNrsmU1oHFUcwP9vvr9nVsKm2cTspjEbDA2CoFUDLR6qFu8pmkQCpRhroyCIoBQrVTx4MLXIpkqDXmLE3MTeBG+KUBDNpaAHkVgkDWGL2dndmffG/5vsrg0Bu/m42Ldv+TMzb957MD/+30vkaR1kWQZJklIhhEC7I0kSqEB9634+BBEGMc4FigbyMcMwSqqqFjk0nG4HFzDGIKpHK2E1PB0Rdj28vEHvdWCKpVm2bRkLnufnDdMEWZHbw5UAUBpDWAmP3C6Xr1SqteM4ffueB2aqeo/junnvPh9My26YZXvAGKWg6hrQhA5KieIKAczRbU8zddAsLtqufBhjMmhJDFpFB7WmOiL4MMUxXDeWKDD8xfjx6JruOi4cfRMc1Ya3f3gP/sZfIiXEM31XBGCSZ3geBxWzGCIW3VUmhk/BWM9j8FDXKMw/eSmFjM6fBKbvCaFhvun5f0Y3oZ5gepD8tzk+m38aph+caD2//PkrELl19GExyViBL4SGBWbgx4xChJpSRw1qSsEr7HieHX2ptfGtr87DDeU31DrUTmAILCMIMNsP4oRDqaeiyzqUjs/B4omrcDJ/ojX3weMXwdO33NTi90uw+Psy2rOSvqeMkowdBEKYZGAEQdN/JQzNrv8peCT7cPry4qPn0UdReGHoOeh1cuncz3/8Au989y7oBTOFxfexBIGZogCz/BYwxhL46NuPob/eC5NPPJ8ueP/ohdbicqUMk59NQ72fAWH1NKLGDWCBJQgw3/R9HukIfriMwJScDrPXXkvrxKmxiW2LT81PwK1DZUxuZZ61psAo7kPVJPwcYaLkVv4VYbRj6aRaNOHstVfTenFqbDKde/3LN+BH5SdQdBWnabOc5BESlAQIP0cIYK6JeRhqS4KaIjH274shA178ZraVx5Z+vQpqr5Ga7h31NzdHrD1lTFw9MfIwdNYu92FoVWiWbHsIfUCDM1+fbWndNlgNYAnWk0pCiIcVgxDADnnd61kzG/9F1xTCpB2dHTKkptfUbHcUk9x9UcjZ+djRnVtC5GGWZi2VnrkU3q/20rgSQRzuQnD9oH6YXj75YRXP+UIEYASmZKgubJ7D+zMoxT2csYLyqa7onwgBjKcP+zqg0Q7a7zn/G2CGYSjj4+PHcrlcybbtoqIobfXEOKAoimBzc3NldXX19PLy8vUwDAVoUVuWPTIyslAoFPJdXV2g63pbGzmwWq0Ga2trR1zXvYLniNGiHh4e7hkYGMgXi0Xo7u4GVVXb3syBZTIZoJQOOo4jSIvacTyuWRxWNptN/3JrV8MQVHpFLQPP84RoUUtogi76sVSz2oXVdPZ8Pd+naRpBYGK0qNH3eHdGu71ESRQSBIEQpZGEDvsgimaCvszvAOsA2wnM9/3ggIAFHWAdYDuBYXTb94c2nL4wwA7Eh6Gm+h1gu9AwYYBhlDyI/IknrmLkYagYbrPU2cto7BMn00dfvR7j4K0aXhvuBhRfz/fhiLEmFaJFzds7S319faPr6+sWPsu77VZsbGzQfD5fxXPEaFHPzMzA3Nzc/lvUuhgt6n8EGACMcAm3T9Rl6QAAAABJRU5ErkJggg==);
+    background-position: 0 -19px
+}
+
+.pronto-login__remember-field {
+    display: inline-block;
+    margin: 0 -19px -4px 0;
+    width: 19px;
+    height: 19px;
+    cursor: pointer;
+    background-color: none;
+    opacity: 0
+}
+
+.pronto-login__remember-field:checked+.pronto-login__remember-label {
+    background-position: 0 0
+}
+
+.pronto-login__error {
+    color: #c00
+}
+
+.pronto-login__error,
+.pronto-login__success {
+    text-align: center;
+    margin: 15px 0 -15px;
+    text-shadow: 0 1px 0 #fff;
+    font-weight: 700;
+    font-size: 15px;
+    display: none
+}
+
+.pronto-login__success {
+    color: #00c000
+}
+
+.pronto-login__start {
+    display: none
+}
+
+.pronto-login__siginingin {
+    display: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 80px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .99);
+    color: rgba(0, 0, 0, .4)
+}
+
+.pronto-login__trobber {
+    margin: 0 auto 10px
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: .25
+    }
+}
+
+@-moz-keyframes fade {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: .25
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: .25
+    }
+}
+
+.pronto-login__spinner {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    margin: 0 auto 10px
+}
+
+div.pronto-login__spinner div {
+    width: 5%;
+    height: 28%;
+    background: #536269;
+    position: absolute;
+    left: 46.5%;
+    top: 37%;
+    opacity: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 -1px 0 #536269, 0 0 3px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 -1px 0 #536269, 0 0 3px rgba(0, 0, 0, .2);
+    box-shadow: 0 -1px 0 #536269, 0 0 3px rgba(0, 0, 0, .2);
+    -webkit-animation: fade .5s linear infinite;
+    -moz-animation: fade .5s linear infinite;
+    animation: fade .5s linear infinite
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar1 {
+    -webkit-transform: rotate(0deg) translate(0, -142%);
+    -moz-transform: rotate(0deg) translate(0, -142%);
+    transform: rotate(0deg) translate(0, -142%);
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar2 {
+    -webkit-transform: rotate(30deg) translate(0, -142%);
+    -moz-transform: rotate(30deg) translate(0, -142%);
+    transform: rotate(30deg) translate(0, -142%);
+    -webkit-animation-delay: -.4583s;
+    -moz-animation-delay: -.4583s;
+    animation-delay: -.4583s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar3 {
+    -webkit-transform: rotate(60deg) translate(0, -142%);
+    -moz-transform: rotate(60deg) translate(0, -142%);
+    transform: rotate(60deg) translate(0, -142%);
+    -webkit-animation-delay: -.4166s;
+    -moz-animation-delay: -.4166s;
+    animation-delay: -.4166s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar4 {
+    -webkit-transform: rotate(90deg) translate(0, -142%);
+    -moz-transform: rotate(90deg) translate(0, -142%);
+    transform: rotate(90deg) translate(0, -142%);
+    -webkit-animation-delay: -.375s;
+    -moz-animation-delay: -.375s;
+    animation-delay: -.375s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar5 {
+    -webkit-transform: rotate(120deg) translate(0, -142%);
+    -moz-transform: rotate(120deg) translate(0, -142%);
+    transform: rotate(120deg) translate(0, -142%);
+    -webkit-animation-delay: -.3333s;
+    -moz-animation-delay: -.3333s;
+    animation-delay: -.3333s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar6 {
+    -webkit-transform: rotate(150deg) translate(0, -142%);
+    -moz-transform: rotate(150deg) translate(0, -142%);
+    transform: rotate(150deg) translate(0, -142%);
+    -webkit-animation-delay: -.2916s;
+    -moz-animation-delay: -.2916s;
+    animation-delay: -.2916s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar7 {
+    -webkit-transform: rotate(180deg) translate(0, -142%);
+    -moz-transform: rotate(180deg) translate(0, -142%);
+    transform: rotate(180deg) translate(0, -142%);
+    -webkit-animation-delay: -.25s;
+    -moz-animation-delay: -.25s;
+    animation-delay: -.25s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar8 {
+    -webkit-transform: rotate(210deg) translate(0, -142%);
+    -moz-transform: rotate(210deg) translate(0, -142%);
+    transform: rotate(210deg) translate(0, -142%);
+    -webkit-animation-delay: -.2083s;
+    -moz-animation-delay: -.2083s;
+    animation-delay: -.2083s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar9 {
+    -webkit-transform: rotate(240deg) translate(0, -142%);
+    -moz-transform: rotate(240deg) translate(0, -142%);
+    transform: rotate(240deg) translate(0, -142%);
+    -webkit-animation-delay: -.1666s;
+    -moz-animation-delay: -.1666s;
+    animation-delay: -.1666s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar10 {
+    -webkit-transform: rotate(270deg) translate(0, -142%);
+    -moz-transform: rotate(270deg) translate(0, -142%);
+    transform: rotate(270deg) translate(0, -142%);
+    -webkit-animation-delay: -.125s;
+    -moz-animation-delay: -.125s;
+    animation-delay: -.125s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar11 {
+    -webkit-transform: rotate(300deg) translate(0, -142%);
+    -moz-transform: rotate(300deg) translate(0, -142%);
+    transform: rotate(300deg) translate(0, -142%);
+    -webkit-animation-delay: -.0833s;
+    -moz-animation-delay: -.0833s;
+    animation-delay: -.0833s
+}
+
+div.pronto-login__spinner div.pronto-login__spinner__bar12 {
+    -webkit-transform: rotate(330deg) translate(0, -142%);
+    -moz-transform: rotate(330deg) translate(0, -142%);
+    transform: rotate(330deg) translate(0, -142%);
+    -webkit-animation-delay: -.0416s;
+    -moz-animation-delay: -.0416s;
+    animation-delay: -.0416s
+}
+
+.pronto-login_not-supported_no-sign {
+    display: block;
+    width: 132px;
+    height: 125px;
+    margin: 100px auto 50px
+}
+
+.pronto-login_not-supported_text-holder {
+    display: inline-block;
+    margin: 0 25px;
+    text-align: center;
+    width: 400px
+}
+
+.pronto-login_not-supported_browsers {
+    background-color: #fff;
+    border-radius: 10px;
+    margin: auto;
+    width: 454px;
+    height: 141px
+}
+
+.pronto-login_not-supported_icon {
+    display: inline-block;
+    margin: 32px 12px 0;
+    cursor: pointer
+}
+
+.pronto-login_not-supported_chrome {
+    width: 62px;
+    height: 63px
+}
+
+.pronto-login_not-supported_ie {
+    width: 71px;
+    height: 66px
+}
+
+.pronto-login_not-supported_ff {
+    width: 63px;
+    height: 65px
+}
+
+.pronto-login_not-supported_safari {
+    width: 65px;
+    height: 71px
+}
+
+.pronto-login_not-supported_text {
+    color: #2db4ed;
+    font-size: 14px;
+    font-weight: 200;
+    margin-bottom: 15px
+}
+
+.pronto-login_not-supported_text h4 {
+    color: #6d7f87
+}
+
+.pronto-login_not-supported_text-holder h1 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 15px
+}
+
+.pronto-login_not-supported_text-link {
+    margin: 0
+}
+
+.pronto-login_not-supported_text-link a {
+    color: #2db4ed
+}
+
+.pronto-login_not-supported_logo {
+    background-image: url("app/not-supported_logo-fresh.png");
+    background-repeat: no-repeat;
+    width: 79px;
+    height: 27px;
+    margin: 10px auto
+}
+
+.pronto-login_not-supported_center {
+    float: center
+}
+
+#CommuniGateAV {
+    display: block
+}
+
+@media screen and (max-width:450px),
+screen and (max-height:550px) {
+    .pronto-login__form {
+        padding: 12px 12px 89px;
+        height: initial
+    }
+    .pronto-login__logo-img {
+        width: 100px
+    }
+    .pronto-login__logo {
+        height: initial;
+        width: initial
+    }
+    .pronto-login__list {
+        margin: 10px 0 0
+    }
+    .pronto-login__remember {
+        margin-top: 5px
+    }
+}
+
+@media screen and (max-width:350px),
+screen and (max-height:400px) {
+    .pronto-login__form {
+        padding: 8px 8px 89px;
+        height: initial
+    }
+    .pronto-login__logo-img {
+        width: 50px
+    }
+    .pronto-login__logo {
+        height: initial;
+        width: initial
+    }
+    .pronto-login__list {
+        margin: 5px 0 0
+    }
+    .pronto-login__remember {
+        margin-top: 5px
+    }
+}
+
+.pronto-login__multi-factor-authentication__methods-wrapper {
+    width: 100%;
+    overflow: auto;
+    max-height: 200px
+}
+
+.pronto-login__multi-factor-authentication__methods {
+    width: 100%
+}
+
+.pronto-login__multi-factor-authentication__start-button {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: -moz-available;
+    margin-bottom: 10px
+}
+
+.pronto-login__multi-factor-authentication__method-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: unset
+}
+
+.pronto-login__multi-factor-authentication__method-item:hover {
+    background-color: #ffe3b4;
+    cursor: pointer
+}
+
+.pronto-login__multi-factor-authentication__method-item-radio {
+    flex-basis: 30px;
+    display: flex
+}
+
+.pronto-login__multi-factor-authentication__method-item-label {
+    text-align: left;
+    padding: 0 10px;
+    flex-grow: 1;
+    white-space: nowrap
+}
+
+.pronto-login__multi-factor-authentication__method-item-value {
+    text-align: right
+}
+
+.pronto-login__multi-factor-authentication__custom-selector {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2db4ed;
+    color: #fff;
+    font-size: 16px
+}
+
+.pronto-login__multi-factor-authentication__error {
+    height: 45px
+}
+
+.pronto-login__change-password__start-button {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: -moz-available;
+    margin-bottom: 10px
+}

@@ -1,0 +1,96 @@
+.custom-skin .pronto-login {
+    border-top: 5px solid #00A8EC;
+    background-color: #214886;
+    background-image: linear-gradient(-120deg, #0057B8, #DBEFFC);
+}
+
+.custom-skin .pronto-login__logo {
+    height: auto;
+    overflow: auto;
+}
+
+.custom-skin .pronto-login__logo-img {
+    width: 325px;
+}
+
+.custom-skin .pronto-login__form {
+    height: 530px;
+}
+
+.custom-skin .pronto-button,
+.custom-skin .pronto-button:link,
+.custom-skin .pronto-button:visited {
+    background-image: linear-gradient(#0057B8 0px, #001E62 100%);
+    box-shadow: 0 1px 0 rgba(78, 151, 217, 0.65), 0 1px 1px rgba(25, 70, 95, 0.5) inset;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0057B8', endColorstr='#004282', GradientType=0);
+    /* IE6-9 */
+}
+
+.custom-skin .pronto-button:hover {
+    background-image: linear-gradient(#00A8EC 0, #001E62 100%);
+    box-shadow: 0 1px 0 rgba(78, 151, 217, 0.65), 0 1px 1px rgba(25, 70, 95, 0.5) inset;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004282', endColorstr='#0057B8', GradientType=0);
+    /* IE6-9 */
+}
+
+.pronto-login__link-button {
+    cursor: pointer;
+    margin-left: 4px;
+    color: #DBEFFC;
+    text-decoration: underline;
+    text-shadow: none;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.pronto-login__link-button:hover {
+    color: #00A7B5;
+}
+
+.pronto-login__link-button:active {
+    color: #00A7B5;
+}
+
+.pronto-login__type {
+    color: #DBEFFC;
+}
+
+.pronto-login__link-button_dark {
+    cursor: pointer;
+    margin-left: 4px;
+    color: #001E62;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.pronto-login__link-button_dark:hover {
+    color: #001E62;
+}
+
+.pronto-login__link-button_dark:active {
+    color: #001E62;
+}
+
+.custom-skin .marketing-login-message {
+    position: fixed;
+    bottom: 40px;
+    width: 80%;
+    right: 10%;
+    font-size: 10px;
+}
+
+.pronto-login__copyright {
+    margin-right: 20px;
+    color: #7f939c;
+    line-height: 25px;
+    font-size: 13px;
+    display: none;
+    visibility: hidden;
+}
+
+.pronto-login__copyright-version {
+    color: #b8c6cc;
+    font-size: 12px;
+}
